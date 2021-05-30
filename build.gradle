@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id "io.freefair.lombok" version "5.3.0"
+    id 'io.freefair.lombok' version '5.3.0'
     id 'io.qameta.allure' version '2.8.1'
 }
 
@@ -32,10 +32,22 @@ dependencies {
     testImplementation 'commons-dbutils:commons-dbutils:1.7'
     testImplementation 'com.codeborne:selenide:5.21.0'
     testImplementation 'io.qameta.allure:allure-selenide:2.13.3'
-
+    testImplementation 'io.rest-assured:rest-assured:4.4.0'
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.25'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.2.20'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+    testImplementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.30'
 }
 
 test {
     useJUnitPlatform()
     systemProperty 'selenide.headless', System.getProperty('selenide.headless')
+    // для запуска с СУБД MySQL
+    systemProperty 'url', System.getProperty('url', 'jdbc:mysql://localhost:3306/app')
+    systemProperty 'user', System.getProperty('user', 'user')
+    systemProperty 'password', System.getProperty('password', 'pass')
+    // для запуска с СУБД PostgreSQL
+//    systemProperty 'url', System.getProperty('url', 'jdbc:postgresql://localhost:5432/app2')
+//    systemProperty 'user', System.getProperty('user', 'user2')
+//    systemProperty 'password', System.getProperty('password', 'pass2')
 }
