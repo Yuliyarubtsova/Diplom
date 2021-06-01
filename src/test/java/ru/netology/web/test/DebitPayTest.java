@@ -56,7 +56,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.resultApproved();
+        payment.errorMessage();
         val expected = DataHelper.getStatusSecondCard();
         val actual = SQLdata.getPayStatusByDebitCard();
         assertEquals(expected, actual);

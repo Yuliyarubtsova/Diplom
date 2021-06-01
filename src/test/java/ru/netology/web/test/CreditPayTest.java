@@ -48,7 +48,7 @@ public class CreditPayTest {
         assertEquals(expected, actual);
     }
 
-    @Test
+    @Test  //cтатус declined при ответе Одобрено
     void shouldCreditPaySecondCardValidInfo() {
         val cardNumber = DataHelper.getSecondCardNumber();
         val month = DataHelper.getValidMonth();
@@ -56,7 +56,7 @@ public class CreditPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.resultApproved();
+        payment.errorMessage();
         val expected = DataHelper.getStatusSecondCard();
         val actual = SQLdata.getPayStatusByCreditCard();
         assertEquals(expected, actual);
@@ -127,6 +127,7 @@ public class CreditPayTest {
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
         payment.invalidInfo();
     }
+
 
     @Test // неверный формат
     void shouldCreditPayWithEmptyMonth() {
