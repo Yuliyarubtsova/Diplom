@@ -21,7 +21,7 @@
 1. [Программа допускает введение некорректного значения в поле "Владелец"](https://github.com/Yuliyarubtsova/Diplom/issues/4)
 1. [Программа допускает введение в поле "Владелец" одного символа](https://github.com/Yuliyarubtsova/Diplom/issues/5)
 1. [Программа допускает введение в поле "CVC/CVV" нулевых значений](https://github.com/Yuliyarubtsova/Diplom/issues/6)
-
+1. [При закрытии сообщения об отказе банка появляется сообщение об одобрении](https://github.com/Yuliyarubtsova/Diplom/issues/7)
 
 
 
