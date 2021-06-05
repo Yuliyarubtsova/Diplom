@@ -1,10 +1,7 @@
 package ru.netology.web.data;
 
+import lombok.SneakyThrows;
 import lombok.val;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import static java.sql.DriverManager.getConnection;
 
@@ -16,6 +13,7 @@ public class SQLdata {
     private SQLdata() {
     }
 
+    @SneakyThrows
     public static String getPayStatusByDebitCard() {
         val statusBD = "SELECT status FROM payment_entity ORDER BY created DESC LIMIT 1";
 
@@ -30,11 +28,10 @@ public class SQLdata {
                 }
                 return null;
             }
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
         }
     }
 
+    @SneakyThrows
     public static String getPayStatusByCreditCard() {
         val statusBD = "SELECT status FROM credit_request_entity ORDER BY created DESC LIMIT 1";
 
@@ -49,11 +46,10 @@ public class SQLdata {
                 }
                 return null;
             }
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
         }
     }
 
+    @SneakyThrows
     public static void cleanDataBase() {
 
         val credit = "DELETE FROM credit_request_entity";
@@ -70,8 +66,6 @@ public class SQLdata {
             prepareStatOrder.executeUpdate(order);
             prepareStatPayment.executeUpdate(payment);
 
-        } catch (SQLException exception) {
-            throw new RuntimeException(exception);
         }
     }
 }
