@@ -58,7 +58,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.errorMessage();
+        payment.waitErrorMessage();
         val expected = DataHelper.getStatusSecondCard();
         val actual = SQLdata.getPayStatusByDebitCard();
         assertEquals(expected, actual);
@@ -72,7 +72,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test
@@ -83,7 +83,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.errorMessage();
+        payment.waitErrorMessage();
     }
 
     @Test
@@ -94,7 +94,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test
@@ -105,7 +105,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.errorMessage();
+        payment.waitErrorMessage();
     }
 
     @Test
@@ -116,7 +116,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidDate();
+        payment.waitMessageInvalidDate();
     }
 
     @Test  //операция одобрена
@@ -127,7 +127,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test // неверный формат
@@ -138,7 +138,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.emptyField();
+        payment.waitMessageEmptyField();
     }
 
     @Test
@@ -149,7 +149,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.expiredDateCard();
+        payment.waitMessageExpiredDate();
     }
 
     @Test
@@ -160,7 +160,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.expiredDateCard();
+        payment.waitMessageExpiredDate();
     }
 
     @Test
@@ -171,7 +171,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test
@@ -193,7 +193,7 @@ public class DebitPayTest {
         val owner = DataHelper.getEmptyName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.emptyField();
+        payment.waitMessageEmptyField();
     }
 
     @Test  //операция одобрена
@@ -204,7 +204,7 @@ public class DebitPayTest {
         val owner = DataHelper.getInvalidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidOwner();
+        payment.waitMessaegInvalidOwner();
     }
 
     @Test  //операция одобрена
@@ -215,7 +215,7 @@ public class DebitPayTest {
         val owner = DataHelper.getShortName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test  // операция одобрена
@@ -226,7 +226,7 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getNullCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 
     @Test
@@ -237,6 +237,6 @@ public class DebitPayTest {
         val owner = DataHelper.getValidName();
         val cvc = DataHelper.getShortCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.waitMessageInvalidInfo();
     }
 }

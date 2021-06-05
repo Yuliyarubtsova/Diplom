@@ -42,36 +42,36 @@ public class Payment {
         resultApproved.shouldBe(visible, Duration.ofSeconds(16));
     }
 
-    public void errorMessage() {
+    public void waitErrorMessage() {
         errorMessage.shouldBe(visible, Duration.ofSeconds(15));
     }
 
-    public void invalidInfo() {
+    public void waitMessageInvalidInfo() {
         invalidInfo.shouldBe(visible);
     }
 
-    public void invalidDate() {
+    public void waitMessageInvalidDate() {
         invalidDate.shouldBe(visible);
     }
 
-    public void expiredDateCard() {
+    public void waitMessageExpiredDate() {
         expiredDateCard.shouldBe(visible);
     }
 
-    public void emptyField() {
+    public void waitMessageEmptyField() {
         emptyField.shouldBe(visible);
     }
 
-    public void invalidOwner() {
+    public void waitMessaegInvalidOwner() {
         invalidOwner.shouldBe(visible);
     }
 
     public Payment clearFields() {
-        clear();
+        clearForm();
         return new Payment();
     }
 
-    public void clear() {
+    public void clearForm() {
         fieldNumberCard.sendKeys(Keys.chord(Keys.CONTROL + "A" + Keys.DELETE));
         fieldMonth.sendKeys(Keys.chord(Keys.CONTROL + "A" + Keys.DELETE));
         fieldYear.sendKeys(Keys.chord(Keys.CONTROL + "A" + Keys.DELETE));
