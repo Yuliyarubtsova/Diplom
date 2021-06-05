@@ -26,25 +26,16 @@ public class Payment {
     private SelenideElement expiredDateCard = $(withText("Истёк срок действия карты"));
     private SelenideElement emptyField = $(withText("Поле обязательно для заполнения"));
     private SelenideElement invalidOwner = $(withText("Неверно указан владелец"));
-    private SelenideElement debitButton = $$("[class='button button_size_m button_theme_alfa-on-white']").get(0);
-    private SelenideElement creditButton = $$("[class='button button_view_extra button_size_m button_theme_alfa-on-white']").get(0);
+
 
     public void fieldInfo(String cardNumber, String month, String year, String owner, String cvc) {
+        clearFields();
         fieldNumberCard.setValue(cardNumber);
         fieldMonth.setValue(month);
         fieldYear.setValue(year);
         fieldOwner.setValue(owner);
         fieldCVC.setValue(cvc);
         continueButton.click();
-    }
-    public Payment buyDebitCard() {
-        debitButton.click();
-        return new Payment();
-    }
-
-    public Payment buyCreditCard() {
-        creditButton.click();
-        return new Payment();
     }
 
     public void resultApproved() {
@@ -56,23 +47,23 @@ public class Payment {
     }
 
     public void invalidInfo() {
-        invalidInfo.shouldBe(visible, Duration.ofSeconds(15));
+        invalidInfo.shouldBe(visible);
     }
 
     public void invalidDate() {
-        invalidDate.shouldBe(visible, Duration.ofSeconds(15));
+        invalidDate.shouldBe(visible);
     }
 
     public void expiredDateCard() {
-        expiredDateCard.shouldBe(visible, Duration.ofSeconds(15));
+        expiredDateCard.shouldBe(visible);
     }
 
     public void emptyField() {
-        emptyField.shouldBe(visible, Duration.ofSeconds(15));
+        emptyField.shouldBe(visible);
     }
 
     public void invalidOwner() {
-        invalidOwner.shouldBe(visible, Duration.ofSeconds(15));
+        invalidOwner.shouldBe(visible);
     }
 
     public Payment clearFields() {

@@ -1,19 +1,22 @@
+
 package ru.netology.web.page;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$$;
 
 public class Main {
-    private static SelenideElement heading = $("[.heading_size_1]");
-    private static SelenideElement cardPreview = $("[Order_cardPreview__47B2k]");
+    private SelenideElement debitButton = $$("[class='button button_size_m button_theme_alfa-on-white']").get(0);
+    private SelenideElement creditButton = $("[class='button button_view_extra button_size_m button_theme_alfa-on-white']");
 
-    public Main() {
-        heading.shouldBe(visible).shouldHave(Condition.text("Путешествие дня"));
-        cardPreview.shouldBe(visible).shouldHave(Condition.text("Марракэш"));
+    public Payment buyDebitCard() {
+        debitButton.click();
+        return new Payment();
     }
 
+    public Payment buyCreditCard() {
+        creditButton.click();
+        return new Payment();
+    }
 }
-

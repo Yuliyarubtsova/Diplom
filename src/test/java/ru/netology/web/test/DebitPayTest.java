@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.web.data.DataHelper;
 import ru.netology.web.data.SQLdata;
+import ru.netology.web.page.Main;
 import ru.netology.web.page.Payment;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -16,16 +17,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DebitPayTest {
     Payment payment = new Payment();
+    Main main = new Main();
 
     @BeforeEach
     void setUp() {
         SQLdata.cleanDataBase();
         open("http://localhost:8080");
-        payment.buyDebitCard();
+        main.buyDebitCard();
     }
 
     @BeforeAll
-    static void SetUpAll() {
+    static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
@@ -202,7 +204,7 @@ public class DebitPayTest {
         val owner = DataHelper.getInvalidName();
         val cvc = DataHelper.getValidCVC();
         payment.fieldInfo(cardNumber, month, year, owner, cvc);
-        payment.invalidInfo();
+        payment.invalidOwner();
     }
 
     @Test  //операция одобрена
