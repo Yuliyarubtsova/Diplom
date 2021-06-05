@@ -1,8 +1,7 @@
 # **Дипломный проект "Автоматизация тестирования сервиса "Путешествие дня"**
 
-[План автоматизации](https://github.com/Yuliyarubtsova/Diplom/blob/master/Plan.md)
-
-[Отчет о проведенном тестировании](https://github.com/Yuliyarubtsova/Diplom/blob/master/DiplomDocuments/Report.md)
+* [План автоматизации](https://github.com/Yuliyarubtsova/Diplom/blob/master/Plan.md)
+* [Отчет о проведенном тестировании](https://github.com/Yuliyarubtsova/Diplom/blob/master/DiplomDocuments/Report.md)
 
 Запуск автотестов
 1. Склонировать [репозиторий](https://github.com/Yuliyarubtsova/Diplom.git)
