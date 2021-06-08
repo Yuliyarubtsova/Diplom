@@ -1,6 +1,6 @@
 # **Дипломный проект "Автоматизация тестирования сервиса "Путешествие дня"**
 
-* [План автоматизации](https://github.com/Yuliyarubtsova/Diplom/blob/master/Plan.md)
+* [План автоматизации](https://github.com/Yuliyarubtsova/Diplom/blob/master/DiplomDocuments/Plan.md)
 * [Отчет о проведенном тестировании](https://github.com/Yuliyarubtsova/Diplom/blob/master/DiplomDocuments/Report.md)
 
 Запуск автотестов
@@ -13,3 +13,5 @@
 1. Запустить отчет по автотестам - `gradlew allureReport`
 
 
+1. Запустить приложение командой `java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/app2 -Dspring.datasource.username=user2 -Dspring.datasource.password=pass2 -jar artifacts/aqa-shop.jar`
+jdbc:postgresql://localhost:5432/app2
